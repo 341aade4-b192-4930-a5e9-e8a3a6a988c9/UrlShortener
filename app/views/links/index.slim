@@ -1,0 +1,23 @@
+.container
+  br
+  h1 Simplify your links
+  br
+  table.table
+    thead
+      tr
+        th Original URL
+        th Created
+        th Short URL
+        th All Clicks
+        th Action
+    tbody
+      - links.each do |link|
+        tr
+          td = link_to link.original_url
+          td = link.created_at
+          td = link_to link.short_url
+          td = link.all_clicks
+          td
+            button.btn.btn-link Edit
+
+  button.btn.btn-outline-primary Add New

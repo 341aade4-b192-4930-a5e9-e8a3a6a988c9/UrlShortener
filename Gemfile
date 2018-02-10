@@ -62,3 +62,7 @@ group :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails', "~> 4.0"
 end
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-bootstrap'
+end
