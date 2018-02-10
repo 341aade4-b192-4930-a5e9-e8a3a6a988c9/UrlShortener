@@ -38,4 +38,8 @@ class LinksController < ApplicationController
 
     render action: :edit
   end
+
+  def go
+    redirect_to ShortUrlNavigator.call(params[:short_url])
+  end
 end

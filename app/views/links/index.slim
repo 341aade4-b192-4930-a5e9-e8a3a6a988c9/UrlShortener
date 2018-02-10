@@ -15,7 +15,7 @@
         tr
           td = link_to link.original_url
           td = link.created_at
-          td = link_to link.short_url
+          td = link_to go_url(short_url: link.short_url), go_url(short_url: link.short_url), data: { turbolinks: false }, target: '_blank'
           td = link.all_clicks
           td
             = link_to 'Edit', edit_link_path(link), class: 'btn btn-link'
