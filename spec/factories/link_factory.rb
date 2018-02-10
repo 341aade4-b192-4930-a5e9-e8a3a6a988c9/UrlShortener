@@ -3,7 +3,6 @@ FactoryGirl.define do
     original_url "https://google.com/"
     short_url "c6KyUo"
     all_clicks 2
-
-    # created_at { build(:time) }
+    created_at { Time.parse('2018-02-10 22:59:28 UTC') }
   end
 end
