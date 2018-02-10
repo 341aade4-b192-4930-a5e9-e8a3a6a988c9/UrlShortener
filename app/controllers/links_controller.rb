@@ -22,4 +22,20 @@ class LinksController < ApplicationController
 
     render action: :new
   end
+
+  def edit
+    @form = Links::UpdateForm.new(link)
+  end
+
+  def update
+    @form = Links::UpdateForm.new(link)
+
+    if @form.validate(params[:link])
+      @form.save
+
+      return redirect_to action: :index
+    end
+
+    render action: :edit
+  end
 end
