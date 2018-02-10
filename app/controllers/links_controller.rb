@@ -40,6 +40,8 @@ class LinksController < ApplicationController
   end
 
   def go
+    #TODO: extract to seporate controller?
+    #TODO: can modyfy only last
     redirect_to ShortUrlNavigator.call(params[:short_url])
   end
 end
