@@ -1,5 +1,5 @@
 class LinksController < ApplicationController
-  expose :links, -> { Link.all }
+  expose :links, -> { Link.all.order(created_at: :asc) }
   expose :link
 
   def index
