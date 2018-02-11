@@ -24,6 +24,7 @@ class LinksController < ApplicationController
   end
 
   def edit
+    #TODO: can modify only last
     @form = Links::UpdateForm.new(link)
   end
 
@@ -37,11 +38,5 @@ class LinksController < ApplicationController
     end
 
     render action: :edit
-  end
-
-  def go
-    #TODO: extract to seporate controller?
-    #TODO: can modyfy only last
-    redirect_to ShortUrlNavigator.call(params[:short_url])
   end
 end
