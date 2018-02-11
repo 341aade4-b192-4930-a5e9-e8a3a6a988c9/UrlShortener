@@ -7,5 +7,6 @@ module Links
 
     validates :short_url, presence: true
     validates_uniqueness_of :short_url
+    validates :short_url, format: { with: /\A[A-Za-z0-9\-_]+\z/ }
   end
 end

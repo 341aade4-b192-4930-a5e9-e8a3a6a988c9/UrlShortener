@@ -31,6 +31,16 @@ RSpec.describe LinksController, :type => :controller do
     }
   end
 
+  describe 'update links, but with blank short_url' do
+    it {
+      post :update, params: { id: link.id, link: { short_url: 'inv $$&' } }
+
+      expect(response).to be_success
+
+      expect(response.body).to have_css('.error', text: 'is invalid')
+    }
+  end
+
   describe 'update links, but with invalid short_url' do
     it {
       post :update, params: { id: link.id, link: { short_url: '' } }
