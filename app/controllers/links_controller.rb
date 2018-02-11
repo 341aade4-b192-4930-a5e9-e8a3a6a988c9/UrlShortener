@@ -25,7 +25,7 @@ class LinksController < ApplicationController
 
   def edit
     unless Links::UpdatePolicy.call(link)
-      return render plain: "Sorry, you can't edit this link."
+      return render plain: "Sorry, you can't edit this link.", status: :forbidden
     end
 
     @form = Links::UpdateForm.new(link)
@@ -33,7 +33,7 @@ class LinksController < ApplicationController
 
   def update
     unless Links::UpdatePolicy.call(link)
-      return render plain: "Sorry, you can't update this link."
+      return render plain: "Sorry, you can't update this link.", status: :forbidden
     end
 
     @form = Links::UpdateForm.new(link)

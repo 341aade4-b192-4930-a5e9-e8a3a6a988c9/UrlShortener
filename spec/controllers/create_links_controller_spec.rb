@@ -18,6 +18,26 @@ RSpec.describe LinksController, :type => :controller do
         expect(response).to redirect_to(links_path)
     }
   end
+
+  describe 'create links with blank url' do
+    it {
+      post :create, params: { link: { original_url: '' } }
+
+      expect(response).to be_success
+
+      expect(response.body).to have_css('.error', text: 'can\'t be blank')
+    }
+  end
+
+  describe 'create links with incorrect url' do
+    it {
+      post :create, params: { link: { original_url: 'incorrect' } }
+
+      expect(response).to be_success
+
+      expect(response.body).to have_css('.error', text: 'is not a valid URL')
+    }
+  end
 end
 
 
