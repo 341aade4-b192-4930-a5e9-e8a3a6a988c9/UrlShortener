@@ -4,7 +4,7 @@
   br
   = simple_form_for @form, url: links_path do |f|
     = f.input :original_url,
-            label: 'Original URL',
+            label: 'Original URL, e.g. http://yandex.ru/',
             required: false,
             wrapper_html: { class: 'form-group' },
             input_html: { class: 'form-control', placeholder: 'Original URL' },
