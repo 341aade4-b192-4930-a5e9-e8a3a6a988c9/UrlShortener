@@ -11,13 +11,13 @@
         th All Clicks
         th Action
     tbody
-      - links.each do |link|
+      - links.each_with_index do |link, index|
         tr
           td.spec_original_url = link_to link.original_url
           td.spec_created_at = link.created_at
           td.spec_short_link = link_to go_url(short_url: link.short_url), go_url(short_url: link.short_url), data: { turbolinks: false }, target: '_blank'
           td.spec_all_clicks = link.all_clicks
           td
-            = link_to 'Edit', edit_link_path(link), class: 'btn btn-link'
+            = link_to 'Edit', edit_link_path(link), class: "btn btn-success #{'disabled' if index < links.length - 1}"
 
   = link_to 'Add New', new_link_path, class: 'btn btn-primary'

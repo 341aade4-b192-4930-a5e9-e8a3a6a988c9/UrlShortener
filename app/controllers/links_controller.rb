@@ -24,11 +24,18 @@ class LinksController < ApplicationController
   end
 
   def edit
-    #TODO: can modify only last
+    unless Links::UpdatePolicy.call(link)
+      return render plain: "Sorry, you can't edit this link."
+    end
+
     @form = Links::UpdateForm.new(link)
   end
 
   def update
+    unless Links::UpdatePolicy.call(link)
+      return render plain: "Sorry, you can't update this link."
+    end
+
     @form = Links::UpdateForm.new(link)
 
     if @form.validate(params[:link])
